@@ -1,0 +1,6 @@
+{
+  "name": "CP2 Prépa Hub - Portail d'Études",
+  "description": "Portail complet de ressources d'études pour la 2ème année préparatoire CP2 : cours détaillés, travaux dirigés avec corrigés, travaux pratiques, vidéothèque YouTube et quiz interactifs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

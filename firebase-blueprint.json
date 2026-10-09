@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "customResource": {
+      "title": "Custom Resource",
+      "description": "Educational documents (Cours PDF, TD, TP) and video links managed by admin",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "moduleId": { "type": "string", "description": "Target CP2 module" },
+        "type": { "type": "string", "enum": ["cours", "td", "tp", "video"], "description": "Resource type" },
+        "title": { "type": "string", "maxLength": 200, "description": "Title of the resource" },
+        "url": { "type": "string", "description": "URL of the PDF or video link" },
+        "secondaryUrl": { "type": "string", "description": "Optional solution PDF URL" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" },
+        "authorEmail": { "type": "string", "description": "Email of admin who posted" }
+      },
+      "required": ["id", "moduleId", "type", "title", "url"]
+    },
+    "adminUser": {
+      "title": "Admin User",
+      "description": "Authorized administrators list",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "Admin email" },
+        "role": { "type": "string", "description": "Role descriptor" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/resources/{resourceId}": {
+      "schema": "customResource",
+      "description": "Educational materials and links"
+    },
+    "/admins/{adminId}": {
+      "schema": "adminUser",
+      "description": "Admin users"
+    }
+  }
+}
